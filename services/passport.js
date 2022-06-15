@@ -20,18 +20,17 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.gglclientsecret,
     callbackURL: "/auth/google/callback"
     }, 
-    (accesToken, refreshToken, profile, done) => {
-        User.findOne({ googleId: profile.id })
-            .then((existingUser) => {
-                if (existingUser){
-                    console.log('done one')
-                    done(null, existingUser)
-                } else {
-                    new User({ googleId: profile.id })
-                        .save()
-                        .then(user => done(null, user))
-                    console.log('done')
-                }
-            })
+    async (accesToken, refreshToken, profile, done) => {
+        const existingUser = await User.findOne({ googleId: profile.id })
+
+        if (existingUser){
+            console.log('done one')
+            return done(null, existingUser)
+        } 
+
+        const user = await new User({ googleId: profile.id }).save()
+        done(null, user)
+
+        console.log('done')
     })
 )
