@@ -4,17 +4,6 @@ const mongoose = require('mongoose')
 
 const User = mongoose.model('users')
 
-passport.serializeUser((user, done) => {
-    done(null, user.id)
-})
-
-passport.deserializeUser((id, done) => {
-    User.findById(id)
-        .then(user => {
-            done(null, user)
-        })
-})
-
 passport.use(new GoogleStrategy({
     clientID: process.env.gglclientid,
     clientSecret: process.env.gglclientsecret,
@@ -24,13 +13,20 @@ passport.use(new GoogleStrategy({
         const existingUser = await User.findOne({ googleId: profile.id })
 
         if (existingUser){
-            console.log('done one')
             return done(null, existingUser)
         } 
 
-        const user = await new User({ googleId: profile.id }).save()
+        // const user = await new User({ googleId: profile.id }).save()
+        const user = "what the fuck is happening"
         done(null, user)
-
-        console.log('done')
     })
 )
+
+passport.deserializeUser(async(id, done) => {
+    const user = await User.findById(id)
+    done(null,user)
+})
+
+passport.serializeUser((user, done) => {
+    done(null, user.id)
+})

@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+
 import {fetchUser} from '../actions/index'
+
 
 import Header from './Header'
 const Dashboard = () => <h2>Dashboard</h2>
@@ -10,12 +12,11 @@ const Landing = () => <h2>Landing</h2>
 
 const App = () => {
   const dispatch = useDispatch()
+  
+  console.log(2)
 
-  useEffect(() => {
-    console.log("dispatching fetch user")
-    dispatch(fetchUser())
-    console.log(localStorage.getItem(JSON.stringify("current_user")))
-  }, [])
+  dispatch(fetchUser())
+
 
   return (
     <div className='container'>

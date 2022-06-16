@@ -4,8 +4,6 @@ const cookieSession = require('cookie-session')
 const passport = require('passport')
 const cors = require('cors')
 
-const authRoutes = require('./routes/authRoutes')
-
 const app = express()
 require('./models/User')
 require('dotenv').config()
@@ -14,8 +12,9 @@ require('./services/passport')
 app.use(cors())
 app.use(
     cookieSession({
+        name:"NO NAMES",
         maxAge: 30 * 24 * 60 * 60 * 1000,
-        keys: [process.env.cookiekey]
+        keys: [process.env.cookiekey] 
     })
 )
 app.use(passport.initialize())

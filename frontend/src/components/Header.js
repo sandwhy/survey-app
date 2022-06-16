@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import {fetchUser} from '../actions/index'
 
 const Header = () => {
+  console.log(1)
+  const {auth} = useSelector((reducer) => reducer)
+  
+  console.log("auth")
+  console.log(auth)
+
   return (
     <nav>
       <div className='nav-wrapper'>
@@ -8,9 +17,10 @@ const Header = () => {
           Emaily
         </a>
         <ul className='right'>
-          <li>
-            <a>Login With Google</a>
-          </li>
+            {auth == false 
+              ?  <li><a href="/auth/google">Login With Google</a></li>
+              : <li><a href='/api/logout'>Logout</a></li>
+            }
         </ul>
       </div>
     </nav>

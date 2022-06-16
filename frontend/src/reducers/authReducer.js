@@ -1,11 +1,9 @@
 import { FETCH_USER } from "../constants/actionTypes"
 
-const reducer = (state={}, action) => {
+const reducer = (state= null, action) => {
     switch (action.type) {
-        case FETCH_USER: 
-            localStorage.setItem("current_user", JSON.stringify({...action?.data}))
-
-            return {...state, current_user: action?.data}
+        case FETCH_USER:
+            return action.data || false
         default:
             return state
     }
