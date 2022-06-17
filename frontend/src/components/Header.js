@@ -5,13 +5,8 @@ import { Link } from 'react-router-dom'
 import Payment from './Payment'
 
 const Header = () => {
-  console.log(1)
   const {auth} = useSelector((reducer) => reducer)
-  
-  console.log("auth")
-  console.log(auth)
-  console.log(auth.credits)
-
+ 
   let how 
   if (auth === false) {
     how = <li><a href="/auth/google">Login With Google</a></li>
