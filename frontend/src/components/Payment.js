@@ -13,7 +13,7 @@ const Payment = () => {
         name="Emaily"
         description='$5 for 5 email credits'
         amount={500}
-        token={token=>dispatch(handleToken(token))}
+        token={token=>{dispatch(handleToken(token))}}
         stripeKey={whiteflag.stripepublicKey}
     >
         <button className='btn'>

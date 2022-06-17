@@ -16,8 +16,7 @@ passport.use(new GoogleStrategy({
             return done(null, existingUser)
         } 
 
-        // const user = await new User({ googleId: profile.id }).save()
-        const user = "what the fuck is happening"
+        const user = await new User({ googleId: profile.id, credits: 0 }).save()
         done(null, user)
     })
 )

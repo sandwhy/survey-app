@@ -10,6 +10,7 @@ const Header = () => {
   
   console.log("auth")
   console.log(auth)
+  console.log(auth.credits)
 
   let how 
   if (auth === false) {
@@ -19,6 +20,9 @@ const Header = () => {
   } else {
     how = [
       <li key="1"><Payment /></li>,
+      <li key="3" style={{margin: '0 10px'}}>
+        Credits: {auth.credits}
+      </li>,
       <li key="2"><a href='/api/logout'>Logout</a></li>
     ]
   }
