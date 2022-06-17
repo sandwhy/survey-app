@@ -11,7 +11,8 @@
     "start": "node index.js",
     "backend": "nodemon index.js",
     "frontend": "npm run start --prefix frontend",
-    "start-dev": "concurrently \"npm run frontend\" \"npm run backend\""
+    "start-dev": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "heoku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build -- prefix client"
   },
   "author": "",
   "license": "ISC",
