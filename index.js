@@ -29,6 +29,7 @@ require('./routes/billingRoutes')(app)
 require('./routes/surveyRoutes')(app)
 
 if (process.env.NODE_ENV === 'production') {
+    console.log('its official')
     app.use(express.static('/frontend/build'))
 
     const path = require('path')
