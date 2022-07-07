@@ -2,7 +2,7 @@ import React from 'react'
 import StripeCheckout from 'react-stripe-checkout'
 import { useDispatch } from 'react-redux'
 
-import whiteflag from "../white_flag/WhiteFlg"
+import whiteflag from "../white_flag/whiteflag"
 import {handleToken} from '../actions/index'
 
 const Payment = () => {

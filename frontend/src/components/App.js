@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
@@ -7,8 +7,8 @@ import {fetchUser} from '../actions/index'
 
 import Header from './Header'
 import Landing from './Landing'
-const Dashboard = () => <h2>Dashboard</h2>
-const SurveyNew = () => <h2>SurveyNew</h2>
+import Dashboard from './Dashboard'
+import SurveyNew from './surveys/SurveyNew'
 
 
 const App = () => {

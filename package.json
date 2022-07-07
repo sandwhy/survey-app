@@ -11,8 +11,9 @@
     "start": "node index.js",
     "backend": "nodemon index.js",
     "frontend": "npm run start --prefix frontend",
-    "start-dev": "concurrently \"npm run frontend\" \"npm run backend\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "start-dev": "concurrently \"npm run frontend\" \"npm run backend\" \"npm run webhook\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend",
+    "webhook": "lt -p 5000 -s lccltunnl"
   },
   "author": "",
   "license": "ISC",
@@ -23,10 +24,16 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "form-data": "^4.0.0",
+    "localtunnel": "^2.0.2",
+    "mailgun-js": "^0.22.0",
+    "mailgun.js": "^7.0.3",
     "mongoose": "^6.3.6",
+    "ngrok": "^4.3.1",
     "nodemon": "^2.0.16",
     "passport": "^0.5.3",
     "passport-google-oauth20": "^2.0.0",
+    "sendgrid": "^5.2.3",
     "stripe": "^9.8.0"
   }
 }

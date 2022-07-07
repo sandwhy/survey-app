@@ -18,3 +18,12 @@ export const handleToken = (token) => async dispatch => {
         console.log(error)
     }   
 }
+
+export const submitSurvey = (values, history) => async dispatch => {
+        console.log('hello')
+        const {data} = await api.submitSurvey(values)
+        console.log("data")
+        console.log(data)
+        history.push('/surveys');
+        dispatch({ type: FETCH_USER, payload: data })
+}
