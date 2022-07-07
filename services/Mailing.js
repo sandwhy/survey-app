@@ -1,8 +1,8 @@
 // const formData = require('form-data')
 // const mailgun = require("mailgun-js")
 const template = require('./emailTemplates/surveyTemplate')
-const DOMAIN = env.process.domain
-const KEY = env.process.mgkey
+const DOMAIN = process.env.domain
+const KEY = process.env.mgkey
 
 class Mailing {
     constructor({subject, recipients}, content){

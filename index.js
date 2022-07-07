@@ -4,6 +4,7 @@ const cookieSession = require('cookie-session')
 const passport = require('passport')
 const cors = require('cors')
 const bodyparser = require('body-parser')
+const path = require('path')
 
 const app = express()
 
@@ -24,7 +25,7 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(express.static(__dirname, '../frontend/build'))
+app.use(express.static(path.resolve(__dirname, '../frontend/build')))
 require('./routes/authRoutes')(app)
 require('./routes/billingRoutes')(app)
 require('./routes/surveyRoutes')(app)
@@ -32,7 +33,6 @@ require('./routes/surveyRoutes')(app)
 if (process.env.NODE_ENV === 'production') {
     console.log('its official')
 
-    const path = require('path')
     app.get('*', (req,res) => {
         res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
     })
