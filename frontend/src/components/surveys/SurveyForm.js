@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import _default from 'react-redux/es/components/connect'
 import { reduxForm, Field } from 'redux-form'
 
 import {checkEmpty, emailValidation} from '../../utils/validateEmails'
