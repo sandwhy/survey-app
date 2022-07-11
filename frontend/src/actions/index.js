@@ -1,5 +1,7 @@
-import { FETCH_USER } from '../constants/actionTypes'
+import { FETCH_SURVEYS, FETCH_USER } from '../constants/actionTypes'
 import * as api from '../api'
+import whiteflag from '../white_flag/whiteflag'
+import axios from 'axios'
 
 export const fetchUser = () => async (dispatch) => {
     try {        
@@ -20,10 +22,13 @@ export const handleToken = (token) => async dispatch => {
 }
 
 export const submitSurvey = (values, history) => async dispatch => {
-        console.log('hello')
         const {data} = await api.submitSurvey(values)
-        console.log("data")
-        console.log(data)
         history.push('/surveys');
         dispatch({ type: FETCH_USER, payload: data })
+}
+
+export const fetchSurveys = () => async dispatch => {
+    const {data} = await api.fetchSurveys()
+
+    dispatch({type: FETCH_SURVEYS, payload: data})
 }

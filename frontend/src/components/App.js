@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import {fetchUser} from '../actions/index'
 
@@ -14,6 +14,9 @@ import SurveyNew from './surveys/SurveyNew'
 const App = () => {
   const dispatch = useDispatch()
   dispatch(fetchUser())
+
+  // const data = useSelector((state) => state)
+  // console.log(data)
   
   return (
     <div className='container'>
