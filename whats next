@@ -1,0 +1,5 @@
+-frontend: improve the design of the survey list cards
+-backend: allow users to delete surveys that have been created
+-front&back: allow users to specify the 'form' field on survey emails
+-front: allow client side sorting of surveys
+-front&back: allow surveys to be created in 'draft mode'
